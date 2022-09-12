@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+ 
+    </style>
+  </head>
+  <body>
+    <h2>Lab 1 Html5 Task 2</h2> <hr />
+    <label> Red</label>
+      <input type="range"  id="red" min="0" max="255" step="1" /> 
+      <br><br>
+
+      <label> Green</label>
+      <input type="range"  id="green" min="0" max="255" step="1"  /> 
+      <br><br>
+
+      <label> Blue</label>
+      <input type="range"  id="blue" min="0" max="255" step="1" /> 
+      <br><br>
+
+      <h3 id="mytext">Hello :) Some Text Here will be colored according to your above settings thank you !</h3>
+     
+   
+   
+    
+
+    
+    
+    <script>
+      var red = document.getElementById("red");
+      var green = document.getElementById("green");
+      var blue = document.getElementById("blue");
+      var mytext = document.getElementById("mytext");
+    
+      // var mred= red.getAttribute('value');
+      var mgreen;
+      var mblue;
+      var mred;
+      // console.log(mred);
+
+      red.addEventListener('click',function(){
+         mred= red.value;
+        mytext.style.color=`rgb(${mred},${mgreen},${mblue})`;
+      });
+
+      green.addEventListener('click',function(){
+         mgreen= green.value;
+        mytext.style.color=`rgb(${mred},${mgreen},${mblue})`;
+      });
+
+      blue.addEventListener('click',function(){
+         mblue= blue.value;
+        mytext.style.color=`rgb(${mred},${mgreen},${mblue})`;
+      });
+
+     
+     
+    </script>
+  </body>
+</html>

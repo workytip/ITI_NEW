@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+ 
+    </style>
+  </head>
+  <body>
+
+    <hr />
+    <h2>Lab 1 Html5 Video controls</h2>
+    
+      <video
+      src="./frozen.mp4"
+      width="500px"
+      poster="./frozen.jpg"
+      id="vid1"
+       >
+      </video>
+    <div id="controls"></div>
+    
+    
+    <script>
+      var video = document.getElementById("vid1");
+      var controls = document.getElementById("controls");
+
+      // time label
+      var label = document.createElement('label');
+
+      // track input
+      var track = document.createElement('input');
+      track.setAttribute('type','range');
+      track.setAttribute('value','0');
+      track.setAttribute('max',video.duration);
+
+
+      controls.appendChild(track);
+      track.style.display='block';
+      track.style.width='500px';
+
+      // controls.appendChild(label);
+      track.addEventListener('click',function()
+      {
+        label.textContent = '';
+
+        video.currentTime =track.value;
+
+        const minutes = Math.floor(video.currentTime / 60);
+        const seconds = Math.floor(video.currentTime - minutes * 60);
+
+        const duminutes = Math.floor(video.duration / 60);
+        const duseconds = Math.floor(video.duration - duminutes * 60);
+
+        const minuteValue = minutes.toString().padStart(2, '0');
+        const secondValue = seconds.toString().padStart(2, '0');
+        const durationmvalue = duminutes.toString().padStart(2, '0');
+        const durationsvalue = duseconds.toString().padStart(2, '0');
+
+
+        const mediaTime = `${minuteValue}:${secondValue}`;
+        const duration = `${durationmvalue}:${durationsvalue}`;
+
+        label.textContent = mediaTime+'/'+ duration;
+        controls.appendChild(label);
+      
+
+
+      });
+
+
+      // play button
+      var play = document.createElement('input');
+      play.setAttribute('type','button');
+      play.setAttribute('value','play');
+      controls.appendChild(play);
+      play.addEventListener('click',function(){video.play()});
+
+      // pause button
+      var pause = document.createElement('input');
+      pause.setAttribute('type','button');
+      pause.setAttribute('value','pause');
+      controls.appendChild(pause);
+      pause.addEventListener('click',function(){video.pause()});
+
+      // begining button
+      var reload = document.createElement('input');
+      reload.setAttribute('type','button');
+      reload.setAttribute('value','<<');
+      controls.appendChild(reload);
+      reload.addEventListener('click',function(){video.currentTime = 0});
+
+      // decrease 5 button
+      var decrease = document.createElement('input');
+      decrease.setAttribute('type','button');
+      decrease.setAttribute('value','<');
+      controls.appendChild(decrease);
+      decrease.addEventListener('click',function(){video.currentTime -= 5});
+
+      // increase 5 button
+      var increase = document.createElement('input');
+      increase.setAttribute('type','button');
+      increase.setAttribute('value','>');
+      controls.appendChild(increase);
+      increase.addEventListener('click',function(){video.currentTime += 5});
+
+       // to end button
+       var toend = document.createElement('input');
+       toend.setAttribute('type','button');
+       toend.setAttribute('value','>>');
+      controls.appendChild(toend);
+      toend.addEventListener('click',function(){video.currentTime = video.duration});
+
+
+    // sound input
+    var sound = document.createElement('input');
+     sound.setAttribute('type','range');
+     sound.setAttribute('min','0');
+     sound.setAttribute('max','1');
+     sound.setAttribute('step','0.2');
+
+     controls.appendChild(sound);
+     sound.addEventListener('click',function(){video.volume = sound.value;});
+
+
+     // mute btn
+       
+      var mute = document.createElement('input');
+      mute.setAttribute('type','button');
+      mute.setAttribute('value','Mute');
+      controls.appendChild(mute);
+      mute.addEventListener('click',function(){video.volume=0});                              
+
+    // speed input
+ 
+     var speedlabel = document.createElement('label');
+     speedlabel.textContent= 'Speed'
+     controls.appendChild(speedlabel);
+
+    var speed = document.createElement('input');
+    speed.setAttribute('type','range');
+    speed.setAttribute('value','1');
+    speed.setAttribute('min','0');
+    speed.setAttribute('max','2');
+    speed.setAttribute('step','0.5');
+
+     controls.appendChild(speed);
+     speed.addEventListener('click',function(){video.playbackRate = speed.value;});
+
+    </script>
+  </body>
+</html>
