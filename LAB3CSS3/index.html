@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+
+      input:valid
+      {
+        border: 1px solid blue;
+        
+      }
+      .box {
+        width: 250px;
+        height: 25px;
+        border: 2px solid blue;
+        background-color: cornflowerblue;
+        border-radius: 25px;
+        text-align: center;
+        font-weight: bold;
+        transition: all 3s;
+      }
+      .box:hover
+      {
+        box-shadow: 0px 0px 15px rgb(90, 167, 230);
+        background-color: lightpink;
+      }
+      img{
+        transition: all 5s;
+      }
+      img:hover {
+        opacity: 0;
+       }
+    </style>
+  </head>
+  <body>
+   
+    <div>
+      <img src="chckn.jpeg" alt="" width="300px"/>
+    </div>
+    <hr>
+    <br><br>
+    <div class="box">Hover To Blink</div>
+    <br><br>
+    <hr>
+        <br><br>
+      <h2>Change Email Address</h2>
+      <form >
+        <input type="text" placeholder="Username" required onkeydown="remove()" id="userinput">
+        <p id="usernamevalid"> the required user name may only be a series of alphapetical characters</p>
+        <br> <br>
+       <input type="email" placeholder="Email" required id="mailinput" onkeydown="remove()">
+       <p id="mailvalid"> the required Email address mau not include any special characters other than the @ sign</p>
+
+       <br> <br>
+       <input type="submit" value="Change" >
+
+      </form>
+      
+      <br><br>
+      <script>
+        function remove()
+        {
+          var userinput = document.getElementById('userinput');
+          var mailinput = document.getElementById('mailinput');
+          var uservalid = document.getElementById('usernamevalid');
+          var mailvalid = document.getElementById('mailvalid');
+
+          if(userinput.value !='')
+          {
+            uservalid.style.display = "none"; 
+          }
+          if(userinput.value =='')
+          {
+            uservalid.style.display = "block"; 
+          }
+
+          var pattern = /(.+)@(.+){2,}\.(.+){2,}/;
+          if(pattern.test(mailinput.value))
+          {
+            mailvalid.style.display = "none"; 
+          }
+          if(!pattern.test(mailinput.value))
+          {
+            mailvalid.style.display = "block"; 
+          }
+          
+        }
+      </script>
+  </body>
+</html>

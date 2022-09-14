@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lAB 3 CSS3 GRID</title>
+    <style>
+      body{background-color: aqua;}
+      .container{ 
+        width: 500px;
+        height: 500px;
+        margin: auto;
+      }
+      section:hover
+      {
+        transform:  rotate(360deg);
+         
+      }
+      section {
+        transition: all 5s;
+        display: grid;
+        height: 600px;
+        grid-template-areas:
+          "nav head head "
+          "nav art aside"
+          "footer footer aside";
+      }
+      header {
+        grid-area: head;
+        background-color: rgb(7, 30, 30);
+        margin: 5px;
+      }
+      nav {
+        grid-area: nav;
+        background-color: rgb(7, 30, 30);
+        margin: 5px;
+
+      }
+      aside {
+        grid-area: aside;
+        background-color: rgb(7, 30, 30);
+        margin: 5px;
+
+      }
+      article {
+        grid-area: art;
+        background-color:rgb(7, 30, 30);
+        margin: 5px;
+
+      }
+      footer {
+        grid-area: footer;
+        background-color: rgb(7, 30, 30);
+        margin: 5px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <!-- way 1 -->
+    <div class="container">
+      <section>
+        <header>header</header>
+        <nav>nav</nav>
+        <article>article</article>
+        <aside>aside</aside>
+        <footer>footer</footer>
+      </section>
+    </div>
+    
+  </body>
+</html>
