@@ -24,9 +24,9 @@ app.post("/login",async function(req,res){
 
     if(myuser && req.body.password==myuser.password){
 
-        user.sid = Math.random();
+        myuser.sid = Math.random();
 
-        res.cookie("sid",user.sid)
+        res.cookie("sid",myuser.sid)
         res.send("Login success");
         
     }else{
@@ -38,13 +38,16 @@ app.post("/login",async function(req,res){
 
 app.get("/" ,async function(req,res){
 
-    console.log(req.cookies.msg);
     let myuser = await db.collection("Users").findOne({_id:1})
-
     res.cookie("msg","welcome");
     let username = myuser.username;
     // res.send("welcome");
     res.render("home.ejs" ,{username:username});
+})
+
+app.get("/login" ,function(req,res){
+
+    res.render("login.ejs" );
 })
 
 app.listen(8080)
