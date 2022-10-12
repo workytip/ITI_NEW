@@ -6,15 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reglab.component.css']
 })
 export class ReglabComponent implements OnInit {
-  fromparent ='hello from parent to child'
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  rcvdata:any;
-  show(data:any){
-    this.rcvdata=data;
+   allusers:{name:string , age:number}[]=[];
+
+  show(data:{name:string , age:number}){
+    this.allusers.push(data);
   }
 
 }

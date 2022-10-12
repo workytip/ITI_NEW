@@ -5,11 +5,17 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent  {
    @Input() parendata:any;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+ constructor() {
+ 
+ 
+   }
+  
+  
+
+
+
 
 }
