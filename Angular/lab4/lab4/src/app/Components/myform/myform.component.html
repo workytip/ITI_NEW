@@ -1,0 +1,13 @@
+
+<div>
+      <label for="fname">First Name</label>
+      <input type="text"   placeholder="Your name.." [(ngModel)]="fname">
+      <p style="color:red" *ngIf="fname.length<3 && fname!=''" > Not Valid</p>
+  
+      <label for="lname">Age</label>
+      <input type="number" placeholder="Your last name.." [(ngModel)]="Age">  
+      <p style="color:red" *ngIf="Age<=22 || Age>=40"> Not Valid</p>
+    
+      <input type="submit" value="Submit" (click)="add()">
+  </div>
+
