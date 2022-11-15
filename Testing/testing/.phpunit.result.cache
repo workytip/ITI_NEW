@@ -1,0 +1,1 @@
+{"version":1,"defects":{"FactorialTest::testFactorial":3},"times":{"ProductTest::testAdd":0.004,"FactorialTest::testFactorial":0.002,"UserTest::testname":0.002,"UserTest::testemail":0}}
